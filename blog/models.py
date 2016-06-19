@@ -15,5 +15,5 @@ class Post(models.Model):
     timestamp_created = models.DateTimeField(auto_now_add=True)
     timestamp_last_modified = models.DateTimeField(auto_now=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
