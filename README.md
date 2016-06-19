@@ -5,7 +5,7 @@
 Meow Blog is a blog for cats.
 
 ## Prerequisites
-* Python
+* Python 3.5
 * Pip
 * PostgreSQL
 
