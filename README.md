@@ -11,12 +11,14 @@ Meow Blog is a blog for cats.
 
 ## Installation/Setup
 1. Clone repository and install requirements
+
   ```
   $ git clone https://github.com/gitKrystan/django-meowblog.git`
   $ cd django-meowblog
   $ pip install -r requirements.txt
   ```
 1. Create your database
+
   ```
   $ psql
   # CREATE USER root;
@@ -25,10 +27,12 @@ Meow Blog is a blog for cats.
   # \q
   ```
 1. Run migrations
+
   ```
   $ python manage.py migrate
   ```
 1. Create superuser
+
   `$ python manage.py createsuperuser` then follow prompts
 
 ## Running / Development
