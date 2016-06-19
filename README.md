@@ -20,6 +20,7 @@ $ pip install -r requirements.txt
 ```
 $ psql
 # CREATE USER root;
+# ALTER USER root CREATEDB;
 # CREATE DATABASE meowblog OWNER name;
 # \q
 ```
