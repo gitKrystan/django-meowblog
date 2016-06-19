@@ -22,3 +22,13 @@ class PostViewTests(TestCase):
         response = self.client.get(reverse('blog:list'))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'There are no posts.')
+
+    def test_index_view_with_posts(self):
+        """
+        If posts exist, it displays them in reverse chronological order.
+        """
+        post1 = PostFactory(title="First Post")
+        post2 = PostFactory(title="Second Post")
+        response = self.client.get(reverse('blog:list'))
+        self.assertEqual(response.status_code, 200)
+        self.assertSequenceEqual(response.context['post_list'], [post2, post1])
