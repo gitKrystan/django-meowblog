@@ -32,3 +32,14 @@ class PostViewTests(TestCase):
         response = self.client.get(reverse('blog:list'))
         self.assertEqual(response.status_code, 200)
         self.assertSequenceEqual(response.context['post_list'], [post2, post1])
+
+    def test_detail_view(self):
+        """
+        If post exists, shows the post detail view
+        """
+        post = PostFactory()
+        response = self.client.get(
+            reverse('blog:detail', kwargs={'post_id': post.id})
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, post.title)

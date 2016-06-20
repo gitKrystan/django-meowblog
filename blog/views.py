@@ -1,15 +1,8 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import get_object_or_404, render
 from django.views import generic
 
 from .models import Post
 
-
-# def list(request):
-#     latest_post_list = Post.objects.order_by('-timestamp_last_modified')[:5]
-#     context = {
-#         'latest_post_list': latest_post_list
-#     }
-#     return render(request, 'posts/list.html', context)
 
 class ListView(generic.ListView):
     model = Post
@@ -20,3 +13,8 @@ class ListView(generic.ListView):
         Return the most recently updated posts.
         """
         return Post.objects.order_by('-timestamp_last_modified')
+
+
+def detail(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    return render(request, 'blog/post_detail.html', {'post': post})
