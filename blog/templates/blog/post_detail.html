@@ -1,1 +1,5 @@
-{% include "blog/post_snippet.html" %}
+{% extends 'blog/base.html' %}
+
+{% block content %}
+  {% include "blog/post_snippet.html" %}
+{% endblock %}
