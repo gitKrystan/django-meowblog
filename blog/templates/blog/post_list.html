@@ -2,7 +2,7 @@
   <ul>
     {% for post in post_list %}
       <li>
-        <a href="{% url 'blog:post_detail' post.id %}">{{ post.title }}</a>
+        {% include "blog/post_snippet.html" with link=True %}
       </li>
     {% endfor%}
   </ul>

@@ -1,0 +1,10 @@
+{% if link %}
+  <a href="{% url 'blog:post_detail' post.id %}">
+    <h1>{{ post.title }}</h1>
+  </a>
+{% else %}
+  <h1>{{ post.title }}</h1>
+{% endif %}
+<p>
+  {{ post.content }}
+</p>
