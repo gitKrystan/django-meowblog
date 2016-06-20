@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, render
+# from django.shortcuts import render
 from django.views import generic
 
 from .models import Post
@@ -15,6 +15,5 @@ class PostList(generic.ListView):
         return Post.objects.order_by('-timestamp_last_modified')
 
 
-def post_detail(request, post_id):
-    post = get_object_or_404(Post, pk=post_id)
-    return render(request, 'blog/post_detail.html', {'post': post})
+class PostDetail(generic.DetailView):
+    model = Post

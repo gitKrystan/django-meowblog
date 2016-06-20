@@ -39,7 +39,7 @@ class PostViewTests(TestCase):
         """
         post = PostFactory()
         response = self.client.get(
-            reverse('blog:post_detail', kwargs={'post_id': post.id})
+            reverse('blog:post_detail', kwargs={'pk': post.pk})
         )
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, post.title)
