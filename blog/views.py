@@ -4,7 +4,7 @@ from django.views import generic
 from .models import Post
 
 
-class ListView(generic.ListView):
+class PostList(generic.ListView):
     model = Post
     paginate_by = 5
 
@@ -15,6 +15,6 @@ class ListView(generic.ListView):
         return Post.objects.order_by('-timestamp_last_modified')
 
 
-def detail(request, post_id):
+def post_detail(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
     return render(request, 'blog/post_detail.html', {'post': post})

@@ -19,7 +19,7 @@ class PostViewTests(TestCase):
         """
         If no posts exist, an appropriate message should be displayed.
         """
-        response = self.client.get(reverse('blog:list'))
+        response = self.client.get(reverse('blog:post_list'))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'There are no posts.')
 
@@ -29,7 +29,7 @@ class PostViewTests(TestCase):
         """
         post1 = PostFactory(title="First Post")
         post2 = PostFactory(title="Second Post")
-        response = self.client.get(reverse('blog:list'))
+        response = self.client.get(reverse('blog:post_list'))
         self.assertEqual(response.status_code, 200)
         self.assertSequenceEqual(response.context['post_list'], [post2, post1])
 
@@ -39,7 +39,7 @@ class PostViewTests(TestCase):
         """
         post = PostFactory()
         response = self.client.get(
-            reverse('blog:detail', kwargs={'post_id': post.id})
+            reverse('blog:post_detail', kwargs={'post_id': post.id})
         )
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, post.title)
