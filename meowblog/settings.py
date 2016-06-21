@@ -127,7 +127,6 @@ USE_TZ = True
 STATICFILES_FINDERS = (
     # other static files finder
     'compressor.finders.CompressorFinder',
-    'npm.finders.NpmFinder',
 )
 
 COMPRESS_PRECOMPILERS = (
