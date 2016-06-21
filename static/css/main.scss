@@ -1,5 +1,37 @@
-@import './../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
+@charset 'UTF-8';
 
-h1 {
-  color: salmon;
-}
+// 1. Configuration and helpers
+// @import
+//   'abstracts/variables',
+//   'abstracts/functions',
+//   'abstracts/mixins';
+
+// 2. Vendors
+@import
+  'vendor/bootswatch/variables',
+  './../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap',
+  'vendor/bootswatch/bootswatch';
+
+// 3. Base stuff
+// @import
+//   'base/base',
+//   'base/fonts',
+//   'base/typography',
+//   'base/helpers';
+
+// 4. Layout-related sections
+// @import
+//   'layout/header',
+//   'layout/footer';
+
+// 5. Components
+// @import
+//   'components/button';
+
+// 6. Page-specific styles
+// @import
+//   'pages/home';
+
+// 7. Themes
+// @import
+//   'themes/default';
