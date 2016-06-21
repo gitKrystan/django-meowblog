@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.core.urlresolvers import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views import generic
 
@@ -34,3 +35,9 @@ class PostCreate(generic.edit.CreateView):
 class PostUpdate(generic.edit.UpdateView):
     model = Post
     fields = ['title', 'content']
+
+
+@method_decorator(login_required, name='dispatch')
+class PostDelete(generic.edit.DeleteView):
+    model = Post
+    success_url = reverse_lazy('blog:post_list')

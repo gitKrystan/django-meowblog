@@ -3,6 +3,7 @@
 {% block content %}
   {% if object %}
     <h1>Editing {{ object.title }}</h1>
+    <a href="{% url 'blog:post_delete' post.id %}">Delete</a>
   {% else %}
     <h1>New post</h1>
   {% endif %}
