@@ -23,6 +23,14 @@
   <body>
     <div class="container">
       <h1>Meow Blog</h1>
+
+      {{ user }}
+      {% if user.is_anonymous %}
+      <a href="{% url 'django.contrib.auth.views.login' %}">login</a>
+      {% else %}
+      <a href="{% url 'django.contrib.auth.views.logout' %}">logout</a>
+      {% endif %}
+
       <a href="{% url 'blog:post_create' %}">New Post</a>
       {% block content %}
       {% endblock %}
