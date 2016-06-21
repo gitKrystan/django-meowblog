@@ -10,4 +10,6 @@ urlpatterns = [
     url(r'^posts/(?P<pk>[0-9]+)/$', views.PostDetail.as_view(), name='post_detail'),
     # /posts/new/
     url(r'^posts/new/$', views.PostCreate.as_view(), name='post_create'),
+    # /posts/5/edit/
+    url(r'^posts/(?P<pk>[0-9]+)/edit/$', views.PostUpdate.as_view(), name='post_update'),
 ]

@@ -4,6 +4,7 @@
   </a>
 {% else %}
   <h1>{{ post.title }}</h1>
+  <a href="{% url 'blog:post_update' post.id %}">Update</a>
 {% endif %}
 <p>
   Posted by: {{ post.author.username }}
