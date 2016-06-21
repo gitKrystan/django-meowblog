@@ -6,5 +6,8 @@
   <h1>{{ post.title }}</h1>
 {% endif %}
 <p>
+  Posted by: {{ post.author.username }}
+</p>
+<p>
   {{ post.content }}
 </p>

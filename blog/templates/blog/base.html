@@ -23,6 +23,7 @@
   <body>
     <div class="container">
       <h1>Meow Blog</h1>
+      <a href="{% url 'blog:post_create' %}">New Post</a>
       {% block content %}
       {% endblock %}
 
