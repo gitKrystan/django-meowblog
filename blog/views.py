@@ -1,3 +1,5 @@
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from django.views import generic
 
 from .models import Post
@@ -18,6 +20,7 @@ class PostDetail(generic.DetailView):
     model = Post
 
 
+@method_decorator(login_required, name='dispatch')
 class PostCreate(generic.edit.CreateView):
     model = Post
     fields = ['title', 'content', 'author']
