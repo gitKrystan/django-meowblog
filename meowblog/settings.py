@@ -125,8 +125,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 STATICFILES_FINDERS = (
-# other static files finder
-'compressor.finders.CompressorFinder',
+    # other static files finder
+    'compressor.finders.CompressorFinder',
+    'npm.finders.NpmFinder',
 )
 
 COMPRESS_PRECOMPILERS = (

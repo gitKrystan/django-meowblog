@@ -16,6 +16,7 @@ Meow Blog is a blog for cats.
   $ git clone https://github.com/gitKrystan/django-meowblog.git`
   $ cd django-meowblog
   $ pip install -r requirements.txt
+  $ npm install
   ```
 1. Create your database
 
