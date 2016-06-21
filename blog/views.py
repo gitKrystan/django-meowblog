@@ -23,4 +23,8 @@ class PostDetail(generic.DetailView):
 @method_decorator(login_required, name='dispatch')
 class PostCreate(generic.edit.CreateView):
     model = Post
-    fields = ['title', 'content', 'author']
+    fields = ['title', 'content']
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super(PostCreate, self).form_valid(form)
