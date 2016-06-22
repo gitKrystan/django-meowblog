@@ -13,11 +13,11 @@ Meow Blog is a blog for cats.
 1. Clone repository
 
   ```
-  $ git clone https://github.com/gitKrystan/django-meowblog.git`
+  $ git clone https://github.com/gitKrystan/django-meowblog.git
   $ cd django-meowblog
   ```
 
-1. Create your virtual environment (using virtualenv or equivalent)
+1. Create and activate your virtual environment (using virtualenv or equivalent)
 
 1. Install requirements
 
@@ -32,7 +32,7 @@ Meow Blog is a blog for cats.
   $ psql
   # CREATE USER root;
   # ALTER USER root CREATEDB;
-  # CREATE DATABASE meowblog OWNER name;
+  # CREATE DATABASE meowblog OWNER root;
   # \q
   ```
 1. Run migrations
