@@ -5,4 +5,8 @@
     @extend .list-unstyled;
     font-size: 90%;
   }
+
+  &__list {
+    @extend .list-unstyled;
+  }
 }
