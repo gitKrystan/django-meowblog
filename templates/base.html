@@ -58,20 +58,31 @@
 
     <div class="container">
 
-
-
       {% block content %}
       {% endblock %}
 
       {% if is_paginated %}
-        {% if page_obj.has_previous %}
-          <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-        {% endif %}
-          Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
-        {% if page_obj.has_next %}
-          <a href="?page={{ page_obj.next_page_number }}">next</a>
-        {% endif %}
+        <nav>
+          <ul class="pager">
+            {% if page_obj.has_previous %}
+            <li class="previous">
+              <a href="?page={{ page_obj.previous_page_number }}">
+                <span aria-hidden="true">&larr;</span> Newer
+              </a>
+            </li>
+            {% endif %}
+
+            {% if page_obj.has_next %}
+            <li class="next">
+              <a href="?page={{ page_obj.next_page_number }}">
+                Older <span aria-hidden="true">&rarr;</span>
+              </a>
+            </li>
+            {% endif %}
+          </ul>
+        </nav>
       {% endif %}
+      
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
