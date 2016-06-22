@@ -29,23 +29,20 @@ class PostCreate(LoginRequiredMixin, generic.edit.CreateView):
         return super(PostCreate, self).form_valid(form)
 
 
-class PostUpdate(UserPassesTestMixin, generic.edit.UpdateView):
+class UserOwnerMixin(UserPassesTestMixin):
+
+    def test_func(self):
+        """
+        only allow post author to edit post
+        """
+        return self.get_object().author == self.request.user
+
+
+class PostUpdate(UserOwnerMixin, generic.edit.UpdateView):
     model = Post
     fields = ['title', 'content']
 
-    def test_func(self):
-        """
-        only allow post author to edit
-        """
-        return Post.user_is_author(self)
 
-
-class PostDelete(UserPassesTestMixin, generic.edit.DeleteView):
+class PostDelete(UserOwnerMixin, generic.edit.DeleteView):
     model = Post
     success_url = reverse_lazy('blog:post_list')
-
-    def test_func(self):
-        """
-        only allow post author to edit
-        """
-        return Post.user_is_author(self)

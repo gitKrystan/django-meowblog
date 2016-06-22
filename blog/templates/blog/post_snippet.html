@@ -1,11 +1,14 @@
 {% if link %}
-  <a href="{% url 'blog:post_detail' post.id %}">
-    <h1>{{ post.title }}</h1>
-  </a>
-{% else %}
+<a href="{% url 'blog:post_detail' post.id %}">
   <h1>{{ post.title }}</h1>
+</a>
+{% else %}
+<h1>{{ post.title }}</h1>
+  {% if post.author == user %}
   <a href="{% url 'blog:post_update' post.id %}">Update</a>
+  {% endif %}
 {% endif %}
+
 <p>
   Posted by: {{ post.author.username }}
 </p>
