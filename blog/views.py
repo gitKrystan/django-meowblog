@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import UserPassesTestMixin
 from django.core.urlresolvers import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views import generic
@@ -31,13 +32,23 @@ class PostCreate(generic.edit.CreateView):
         return super(PostCreate, self).form_valid(form)
 
 
-@method_decorator(login_required, name='dispatch')
-class PostUpdate(generic.edit.UpdateView):
+class PostUpdate(UserPassesTestMixin, generic.edit.UpdateView):
     model = Post
     fields = ['title', 'content']
 
+    def test_func(self):
+        """
+        only allow post author to edit
+        """
+        return Post.user_is_author(self)
 
-@method_decorator(login_required, name='dispatch')
-class PostDelete(generic.edit.DeleteView):
+
+class PostDelete(UserPassesTestMixin, generic.edit.DeleteView):
     model = Post
     success_url = reverse_lazy('blog:post_list')
+
+    def test_func(self):
+        """
+        only allow post author to edit
+        """
+        return Post.user_is_author(self)
