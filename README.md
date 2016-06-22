@@ -10,14 +10,22 @@ Meow Blog is a blog for cats.
 * PostgreSQL
 
 ## Installation/Setup
-1. Clone repository and install requirements
+1. Clone repository
 
   ```
   $ git clone https://github.com/gitKrystan/django-meowblog.git`
   $ cd django-meowblog
+  ```
+
+1. Create your virtual environment (using virtualenv or equivalent)
+
+1. Install requirements
+
+  ```
   $ pip install -r requirements.txt
   $ npm install
   ```
+
 1. Create your database
 
   ```
