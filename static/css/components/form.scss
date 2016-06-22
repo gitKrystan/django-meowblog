@@ -1,0 +1,14 @@
+.form-group {
+  input,
+  textarea {
+    @extend .form-control;
+  }
+
+  .errorlist {
+    @extend .help-block;
+    @extend .list-unstyled;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: $brand-danger;
+  }
+}
