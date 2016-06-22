@@ -11,6 +11,7 @@ Meow Blog is a blog for cats. It has the following features:
 * Python 3.5
 * Pip
 * PostgreSQL
+* npm
 
 ## Installation/Setup
 1. Clone repository
