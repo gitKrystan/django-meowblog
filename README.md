@@ -2,7 +2,10 @@
 
 ##### By Krystan Menne
 
-Meow Blog is a blog for cats.
+Meow Blog is a blog for cats. It has the following features:
+* a superuser can create new users from the admin page
+* authenticated users can create, read, update, delete, and list their blog posts
+* anonymous users can view blog posts
 
 ## Prerequisites
 * Python 3.5
