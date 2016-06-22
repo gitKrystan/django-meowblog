@@ -31,7 +31,10 @@
             <span class="sr-only">Toggle navigation</span>
             <i class="fa fa-bars fa-lg" aria-hidden="true"></i>
           </button>
-          <a href="{% url 'blog:post_list' %}" class='navbar-brand'>MEOW BLOG</a>
+          <a href="{% url 'blog:post_list' %}" class='navbar-brand'>
+            <i class="fa fa-paw" aria-hidden="true"></i> 
+            MEOW BLOG
+          </a>
         </div>
 
         <div class="collapse navbar-collapse" id="main-navbar-collapse">
@@ -82,7 +85,7 @@
           </ul>
         </nav>
       {% endif %}
-      
+
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

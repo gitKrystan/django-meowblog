@@ -1,6 +1,8 @@
 @charset 'UTF-8';
 
 // 1. Configuration and helpers
+@import url(https://fonts.googleapis.com/css?family=Codystar),
+  'abstracts/variables';
 // @import
 //   'abstracts/variables',
 //   'abstracts/functions',
@@ -20,6 +22,7 @@
 //   'base/helpers';
 
 // 4. Layout-related sections
+@import 'layout/header';
 // @import
 //   'layout/header',
 //   'layout/footer';
