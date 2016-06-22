@@ -36,6 +36,10 @@ Meow Blog is a blog for cats.
 
   `$ python manage.py createsuperuser` then follow prompts
 
+1. Seed database
+
+  `$ python manage.py loaddata seed.json`
+
 ## Running / Development
 1. `$ python manage.py runserver `
 1. Visit your app at http://localhost:8000
