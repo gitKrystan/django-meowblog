@@ -1,7 +1,5 @@
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import UserPassesTestMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.core.urlresolvers import reverse_lazy
-from django.utils.decorators import method_decorator
 from django.views import generic
 
 from .models import Post
@@ -22,8 +20,7 @@ class PostDetail(generic.DetailView):
     model = Post
 
 
-@method_decorator(login_required, name='dispatch')
-class PostCreate(generic.edit.CreateView):
+class PostCreate(LoginRequiredMixin, generic.edit.CreateView):
     model = Post
     fields = ['title', 'content']
 
