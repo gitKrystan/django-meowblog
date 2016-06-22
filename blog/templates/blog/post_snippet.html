@@ -1,17 +1,41 @@
-{% if link %}
-<a href="{% url 'blog:post_detail' post.id %}">
-  <h1>{{ post.title }}</h1>
-</a>
-{% else %}
-<h1>{{ post.title }}</h1>
-  {% if post.author == user %}
-  <a href="{% url 'blog:post_update' post.id %}">Update</a>
+<div class="post">
+  {% if link %}
+  <a href="{% url 'blog:post_detail' post.id %}">
+    <h1>{{ post.title }}</h1>
+  </a>
+  {% else %}
+  <h1>
+    {{ post.title }}
+  </h1>
   {% endif %}
-{% endif %}
 
-<p>
-  Posted by: {{ post.author.username }}
-</p>
-<p>
-  {{ post.content }}
-</p>
+  <p class="post__info">
+    {% if post.author == user and not link %}
+    <ul class="list-inline">
+      <li>
+        <a href="{% url 'blog:post_update' post.id %}">
+          <i class="fa fa-pencil fa-lg" title="Edit Post"></i>
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'blog:post_delete' post.id %}">
+          <i class="fa fa-remove fa-lg" title="Delete Post"></i>
+        </a>
+      </li>
+    </ul>
+    {% endif %}
+  </p>
+
+  <ul class="post__info">
+    <li>Published: {{ post.timestamp_created }}</li>
+    {% if post.is_updated %}
+      <li>Updated: {{ post.timestamp_last_modified }}</li>
+    {% endif %}
+    <li>Posted by: {{ post.author.username }}</li>
+  </ul>
+
+  <hr>
+
+  {{ post.content|linebreaks }}
+
+</div>

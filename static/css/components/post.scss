@@ -1,0 +1,8 @@
+.post {
+  @extend .well;
+
+  &__info {
+    @extend .list-unstyled;
+    font-size: 90%;
+  }
+}

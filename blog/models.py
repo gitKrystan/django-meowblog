@@ -2,6 +2,8 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.db import models
 
+import datetime
+
 
 class Post(models.Model):
     """
@@ -21,3 +23,6 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('blog:post_detail', kwargs={'pk': self.pk})
+
+    def is_updated(self):
+        return (self.timestamp_last_modified - self.timestamp_created) > datetime.timedelta(0, 5)
